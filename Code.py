@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 #from tensorflow.keras.preprocessing import image
 # path to input image is specified and
 # image is loaded with imread command
-image = cv2.imread('Image file')
+image = cv2.imread('Image_file')
 # cv2.cvtColor is applied over the
 # image input with applied parameters
 # to convert the image in grayscale
