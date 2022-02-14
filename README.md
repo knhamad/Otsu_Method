@@ -1,1 +1,1 @@
-# Otsu_Method
+# Otsu Method
