@@ -1,16 +1,9 @@
-import cv2          
+import numpy as np
 import matplotlib.pyplot as plt
-#from tensorflow.keras.preprocessing import image
-# path to input image is specified and
-# image is loaded with imread command
-image = cv2.imread('Image_file')
-# cv2.cvtColor is applied over the
-# image input with applied parameters
-# to convert the image in grayscale
-Grey_img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-# applying Otsu thresholding
-# as an extra flag in binary 
-# thresholding     
-ret, Segmented_img = cv2.threshold(Grey_img, 1, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)     
-plt.imshow(Segmented_img)
-plt.show()
+import glob
+import cv2          
+from Model import Otsu
+#Simply put your RGB images in the Data file and run the code. The segmented images will be saved as .npy in the Segmented_images folder.
+for path in glob.glob(r'./Data/'+"*.png"):
+    Segmented_img=Otsu.Otsu(path)
+    np.save(r'./Segmented_images/'+str(path[7:-4]),Segmented_img)
